@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\M_Barang;
 use Illuminate\Http\Request;
 
 class Utama extends Controller
@@ -9,5 +10,29 @@ class Utama extends Controller
     public function index()
     {
         return view('Utama');
+    }
+    public function store(Request $request)
+    {
+        $this->validate(
+            $request,
+            [
+                'file' => 'required|max:2048'
+            ]
+        );
+        $file = $request->file('file');
+        $nama_file = time() . "_" . $file->getClientOriginalName();
+        $tujuan_upload = 'data_file';
+        if ($file->move($tujuan_upload, $nama_file)) {
+            $data = M_Barang::create(
+                [
+                    'nama_produk' => $request->nama_produk,
+                    'harga' => $request->harga,
+                    'gambar' => $nama_file,
+                ]
+            );
+            $res['message'] = "Succes!";
+            $res['values'] = $data;
+            return response($res);
+        }
     }
 }

@@ -15,3 +15,4 @@ use App\Http\Controllers\Utama;
  */
 
 Route::get('/', [Utama::class, 'index']);
+Route::post('/pushData', [Utama::class, 'store']);
