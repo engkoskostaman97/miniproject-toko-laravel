@@ -13,12 +13,12 @@ class User extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_user', function (Blueprint $table){
-            $table -> increments ('id');
-            $table -> string('nama_user');
-            $table -> string ('email');
-            $table ->string('password');
-          });
+        Schema::create('tbl_user', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('nama_user');
+            $table->string('email');
+            $table->string('password');
+        });
     }
 
     /**
