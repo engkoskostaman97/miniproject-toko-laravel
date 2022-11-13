@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/pushData',
         '/Daftar',
-        '/Masuk'
+        '/Masuk',
+        '/AddCart'
     ];
 }

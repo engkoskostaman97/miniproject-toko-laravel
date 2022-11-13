@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Order;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Utama;
 use App\Http\Controllers\Login;
@@ -20,3 +21,5 @@ Route::post('/pushData', [Utama::class, 'store']);
 Route::get('/Login', [Login::class, 'index']);
 Route::post('/Daftar', [Login::class, 'Register']);
 Route::post('/Masuk', [Login::class, 'Masuk']);
+Route::get('/Keluar', [Login::class, 'Keluar']);
+Route::post('/AddCart', [Order::class, 'Order']);
